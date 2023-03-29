@@ -1,6 +1,32 @@
 # Namada Blockchain Installation Guide
-Instructions for installing and operating Node Namada
-# Links
+Instructions for installing and operating Node Namada Ubuntu 22.x (Recommended), Ubuntu 20.x
+# Install Dependency
+Update Ubuntu
+```
+apt update -y
+apt upgrade -y
+```
+Install build Dependency
+```
+sudo apt install -y make curl git-core libssl-dev pkg-config clang libclang-12-dev build-essential bsdmainutils jq chrony liblz4-tool ncdu uidmap dbus-user-session
+```
+
+install Rustc (Via Rustup for lastest update)
+```
+curl https://sh.rustup.rs -sSf | sh
+```
+Press 1 to install
+```
+1) Proceed with installation (default)
+```
+Add Rust to System PATH
+```
+source "$HOME/.cargo/env"
+```
+Verify Rustc the Installation
+```
+rustup show
+```
 
 
 # Step by step to install Namada Testnet V 0.14.2
