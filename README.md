@@ -124,6 +124,7 @@ cd $HOME && namada client utils join-network --chain-id $CHAIN_ID
 cd $HOME && wget "https://github.com/heliaxdev/anoma-network-config/releases/download/public-testnet-5.0.d25aa64ace6/public-testnet-5.0.d25aa64ace6.tar.gz"
 tar xvzf "$HOME/public-testnet-5.0.d25aa64ace6.tar.gz"
 
+```
 #Make service
 sudo tee /etc/systemd/system/namadad.service > /dev/null <<EOF
 [Unit]
@@ -143,6 +144,7 @@ LimitNOFILE=65535
 [Install]
 WantedBy=multi-user.target
 EOF
+```
 
 sudo systemctl daemon-reload
 sudo systemctl enable namadad
