@@ -27,7 +27,35 @@ Verify Rustc the Installation
 ```
 rustup show
 ```
+Ko biet can doan nay ko
+```
+if ! [ -x "$(command -v go)" ]; then
+  ver="1.19.4"
+  cd $HOME
+  wget "https://golang.org/dl/go$ver.linux-amd64.tar.gz"
+  sudo rm -rf /usr/local/go
+  sudo tar -C /usr/local -xzf "go$ver.linux-amd64.tar.gz"
+  rm "go$ver.linux-amd64.tar.gz"
+  echo "export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin" >> ~/.bash_profile
+  source ~/.bash_profile
+fi
+```
+```
+echo "export NAMADA_TAG=v0.14.3" >> ~/.bash_profile
+echo "export TM_HASH=v0.1.4-abciplus" >> ~/.bash_profile
+echo "export CHAIN_ID=public-testnet-6.0.a0266444b06" >> ~/.bash_profile
+echo "export WALLET=wallet" >> ~/.bash_profile
 
+#***CHANGE parameters !!!!!!!!!!!!!!!!!!!!!!!!!!!!***
+echo "export VALIDATOR_ALIAS=YOUR_MONIKER" >> ~/.bash_profile
+
+source ~/.bash_profile
+```
+
+```
+cd $HOME && git clone https://github.com/anoma/namada && cd namada && git checkout $NAMADA_TAG
+make build-release
+```
 
 # Step by step to install Namada Testnet V 0.14.2
 
