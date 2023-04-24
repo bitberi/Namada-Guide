@@ -166,8 +166,75 @@ namada client bond \
 ### Done ! 
 If all goes well, you have now become a validator.
 # 3. Node Operation
+### Node
+Check Log
+```
+journalctl -u namadad -f
+```
+Check current height
+```
+sudo journalctl -u namadad -n 10000 -f -o cat | grep height
+```
+Restart service 
+```
+Systemctl restart namadad
+```
+Check free disk space
+```
+df -hT / --total | awk '/^total/ {print "Total disk size: "$3" | Used:" $4 " | Avaliable:" $5 " | Usage:" $6}'
+```
+### Account
+Check the ballance
+```
+namada client balance --owner $WALLET_ALIAS_NAME_OR_FULL_ADDRESS --token NAM
+```
+Check your Votepower
+```
+namada client bonded-stake | grep $VALIDATOR_ADDRESS
+```
+Show all validator in Namada Blockchain
+```
+namada client bonded-stake
+```
+Check total bonds (Bonds require 2 epoch to be activated)
+```
+namadac bonds --validator $VALIDATOR_ALIAS
+```
+Check current Epoch
+```
+namadac epoch
+```
+Unbonds
+```
+namada client unbond \
+  --source $WALLET \
+  --validator $VALIDATOR_ALIAS \
+  --amount 1.2
+```
+Send token to another address
+```
+namada client transfer \
+  --source $WALLET_ALIAS \
+  --target $RECIVE_WALLET_ADDRESS \
+  --token NAM \
+  --amount 1000
+```
 
 # 4. QA and Error Handle
+```
+The address doesn’t belong to any known validator account
+```
+* Check your node is synced or not. Double check that the addresses you entered are correct. If everything is correct wait and try again in a few minutes.
+```
+INFO namada_apps::cli::context: Chain ID: namada-internal.00000000000000
+The application panicked (crashed).
+Message:  called `Result::unwrap()` on an `Err` value:
+   0: couldn't read genesis config file from .namada/namada-internal.00000000000000.toml
+   1: No such file or directory (os error 2)
+Location:
+   apps/src/lib/config/genesis.rs:687
+```
+* Let's go back to the home directory "cd ~"
 
 # 5. Update Namada Validator Node (Post-genesis Validator Only)
 Currently, Namada Testnet version allows export of private keys but does not support automatic import of private keys. 
@@ -177,6 +244,7 @@ Of course there is still a manual way to do it if you have a need to do so pleas
 We will add a new article on how to manually export and import Namada accounts (if it's a real need).
 
 To delete and reinstall Namada do the following:
+
 Stop Namadad service
 ```
 systemctl stop namadad
@@ -199,7 +267,7 @@ sudo mv target/release/namada[c,n,w] /usr/local/bin/
 namada -V
 cd ~
 ```
-Then rejoin new Testnet and config your validator + faucet [From Step 1.8 #Join Testnet 7](#Join-Testnet-7)
+Then rejoin new Testnet and config your validator + faucet [From Step 1.8 #Join Testnet 7](#18-join-testnet-7)
 ### Done !
 
 # Reference
