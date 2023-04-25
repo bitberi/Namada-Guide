@@ -167,6 +167,10 @@ namada client bond \
 If all goes well, you have now become a validator.
 # 3. Node Operation
 ### Node
+Check Node Info
+```
+curl -s localhost:26657/status
+```
 Check Log
 ```
 journalctl -u namadad -f
