@@ -228,7 +228,7 @@ namada client transfer \
 ```
 The address doesn’t belong to any known validator account
 ```
-* Check your node is synced or not. Double check that the addresses you entered are correct. If everything is correct wait and try again in a few minutes.
+* Check your node is synced or not. Double check that the addresses you entered are correct. If everything is correct wait 1 - 2 epoch then try again.
 ```
 INFO namada_apps::cli::context: Chain ID: namada-internal.00000000000000
 The application panicked (crashed).
