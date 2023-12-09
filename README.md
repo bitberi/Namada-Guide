@@ -24,8 +24,8 @@ Note that Namada has 2 types of validators, Pre-genesis Validator and Post-genes
 * OS: Ubuntu 22.04 (Tested), Ubuntu 20.04
 * Ports required: 26656, 26657
 * CPU:	x86_64 or arm64 processor with at least 4 physical cores (must support AVX/SSE instruction set)
-* RAM:	8GB DDR4
-* Storage:	at least 500GB SSD (NVMe SSD is recommended. HDD will also work.)
+* RAM:	16GB DDR4
+* Storage:	at least 1000GB SSD (NVMe SSD is recommended. HDD will also work.)
 
 # 1. Installing new Namada Full Node & Validator
 ### 1.1 ENV Params
