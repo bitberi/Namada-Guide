@@ -1,7 +1,7 @@
 # Installation and operating a Namada Full Node (Testnet)
-Lastest version: v0.15.1
+Lastest version: v0.28.0
 
-Testnet chain ID: public-testnet-7.0.3c5a38dc983
+Testnet chain ID: coming soon
 
 Namada is a layer 1 protocol that uses Proof-of-Stake consensus and aims to provide interchain privacy for various assets. 
 Namada is the initial fractal instance of Anoma and is presently being developed by Heliax, a public goods lab.
@@ -27,11 +27,11 @@ Note that Namada has 2 types of validators, Pre-genesis Validator and Post-genes
 * RAM:	8GB DDR4
 * Storage:	at least 500GB SSD (NVMe SSD is recommended. HDD will also work.)
 
-# 1. Installing new Namada Full Node
+# 1. Installing new Namada Full Node & Validator
 ### 1.1 ENV Params
 ```
 cd ~ 
-NAMADA_TAG="v0.15.1"
+NAMADA_TAG="v0.28.0"
 NAMADA_CHAIN_ID="public-testnet-7.0.3c5a38dc983"
 TM_HASH="v0.1.4-abciplus"
 VALIDATOR_ALIAS="BitberiMem"
@@ -40,7 +40,9 @@ VALIDATOR_ALIAS="BitberiMem"
 ```
 sudo apt update -y
 sudo apt upgrade -y
-sudo apt install curl make clang pkg-config libssl-dev build-essential git jq ncdu bsdmainutils -y
+sudo apt install curl make clang pkg-config libssl-dev build-essential git jq ncdu bsdmainutils  -y
+apt-get install protobuf-compiler -y
+apt install -y pkg-config libusb-1.0-0-dev libftdi1-dev -y
 ```
 ### 1.3 Installing Rustc
 ```
@@ -110,7 +112,7 @@ sudo systemctl restart systemd-journald
 sudo systemctl daemon-reload
 sudo systemctl enable namadad
 ```
-### 1.8 Join Testnet 7
+### 1.8 Join Testnet 15
 ```
 cd ~
 namada client utils join-network --chain-id $NAMADA_CHAIN_ID
