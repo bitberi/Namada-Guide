@@ -34,7 +34,7 @@ cd ~
 NAMADA_TAG="v0.28.0"
 NAMADA_CHAIN_ID="public-testnet-7.0.3c5a38dc983"
 TM_HASH="v0.1.4-abciplus"
-VALIDATOR_ALIAS="BitberiMem"
+VALIDATOR_ALIAS="BitberiNode"
 ```
 ### 1.2 Install and update dependency
 ```
