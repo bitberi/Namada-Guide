@@ -42,7 +42,8 @@ sudo apt update -y
 sudo apt upgrade -y
 sudo apt install curl make clang pkg-config libssl-dev build-essential git jq ncdu bsdmainutils  -y
 apt-get install protobuf-compiler -y
-apt install -y pkg-config libusb-1.0-0-dev libftdi1-dev -y
+apt install pkg-config libusb-1.0-0-dev libftdi1-dev -y
+apt-get install libudev-dev -y
 ```
 ### 1.3 Installing Rustc
 ```
